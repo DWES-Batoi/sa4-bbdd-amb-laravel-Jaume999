@@ -38,3 +38,6 @@ test:
 
 artisan:
 	docker compose run --rm app php artisan $(CMD)
+	
+composer:
+	docker compose run --rm app composer $(CMD)
