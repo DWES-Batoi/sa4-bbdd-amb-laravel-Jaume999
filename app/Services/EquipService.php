@@ -40,6 +40,6 @@ class EquipService {
     }
 
     public function llistar() {
-        return $this->repo->getAll();
+        return Equip::with(['estadi', 'jugadoras'])->get();
     }
 }

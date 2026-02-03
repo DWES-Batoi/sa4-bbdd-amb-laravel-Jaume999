@@ -1,12 +1,12 @@
 @extends('layouts.equip')
 
-@section('title', "Perfil de " . $jugadora->nom)
+@section('title', __("Perfil de") . " " . $jugadora->nom)
 
 @section('content')
-    <div class="container mx-auto">
+    <div class="container mx-auto p-8">
         <div class="mb-6">
-            <a href="{{ route('jugadoras.index') }}" class="text-blue-600 hover:underline">
-                ← Tornar al llistat de jugadores
+            <a href="{{ route('jugadoras.index') }}" class="text-blue-600 hover:underline flex items-center">
+                <span class="mr-1">←</span> {{ __('Tornar al llistat de jugadores') }}
             </a>
         </div>
 

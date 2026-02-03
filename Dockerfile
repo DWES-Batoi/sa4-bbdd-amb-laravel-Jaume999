@@ -1,4 +1,4 @@
-# === PHP-FPM 8.3 (Alpine) con extensiones comunes ===
+np# === PHP-FPM 8.3 (Alpine) con extensiones comunes ===
 FROM php:8.3-fpm-alpine
 
 ARG WWWUSER=1000
