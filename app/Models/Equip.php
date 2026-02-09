@@ -10,7 +10,7 @@ class Equip extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nom', 'estadi_id', 'titols', 'escut'];
+    protected $fillable = ['nom', 'estadi_id', 'titols', 'escut', 'ciutat'];
 
     /**
      * Relación con el Estadio

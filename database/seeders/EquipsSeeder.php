@@ -12,27 +12,35 @@ class EquipsSeeder extends Seeder
 {
     public function run(): void
     {
+        // 1. Crear equipos manuales asociados a estadios específicos
         $estadi = Estadi::where('nom', 'Camp Nou')->first();
-        $estadi->equips()->updateOrCreate(
-            ['nom' => 'Barça Femení'],
-            ['titols' => 30]
-        );
+        if ($estadi) {
+            $estadi->equips()->updateOrCreate(
+                ['nom' => 'Barça Femení'],
+                ['titols' => 30, 'ciutat' => 'Barcelona', 'escut' => 'barca.png']
+            );
+        }
 
         $estadi = Estadi::where('nom', 'Wanda Metropolitano')->first();
-        $estadi->equips()->updateOrCreate(
-            ['nom' => 'Atlètic de Madrid'],
-            ['titols' => 10]
-        );
+        if ($estadi) {
+            $estadi->equips()->updateOrCreate(
+                ['nom' => 'Atlètic de Madrid'],
+                ['titols' => 10, 'ciutat' => 'Madrid', 'escut' => 'atletico.png']
+            );
+        }
 
         $estadi = Estadi::where('nom', 'Santiago Bernabéu')->first();
-        $estadi->equips()->updateOrCreate(
-            ['nom' => 'Real Madrid Femení'],
-            ['titols' => 5]
-        );
+        if ($estadi) {
+            $estadi->equips()->updateOrCreate(
+                ['nom' => 'Real Madrid Femení'],
+                ['titols' => 5, 'ciutat' => 'Madrid', 'escut' => 'madrid.png']
+            );
+        }
 
-        // Si tens UNIQUE a equips.nom i la factory pot repetir noms, posa unique() a la factory
+        // 2. Crear 10 equipos aleatorios usando la Factory (que ya tiene ciudad)
         Equip::factory()->count(10)->create();
 
+        // 3. Crear un Manager para cada equipo existente
         foreach (Equip::all() as $equip) {
             User::updateOrCreate(
                 ['email' => $equip->id . '@manager.com'],
