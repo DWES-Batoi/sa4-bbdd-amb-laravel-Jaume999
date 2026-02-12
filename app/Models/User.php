@@ -13,12 +13,17 @@ class User extends Authenticatable
     // 2. Añadimos HasApiTokens aquí junto a los demás
     use HasApiTokens, HasFactory, Notifiable;
 
+    public const ROLE_ADMIN = 'administrador';
+    public const ROLE_CONVIDAT = 'convidat';
+
     protected $fillable = [
         'name',
         'email',
         'password',
         'role',
         'equip_id',
+        'google_id',
+        'avatar',
     ];
 
     protected $hidden = [

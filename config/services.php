@@ -35,4 +35,15 @@ return [
         ],
     ],
 
+    'google' => [
+    'client_id' => env('GOOGLE_CLIENT_ID'),
+    'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+    'redirect' => env('GOOGLE_REDIRECT'),
+    ],
+    
+    'llm' => [
+        'base_url' => env('LLM_BASE_URL', 'http://ollama:11434'),
+        'model' => env('LLM_MODEL', 'llama3.2:3b'),
+    ],
+
 ];

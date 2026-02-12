@@ -1,7 +1,7 @@
 .SHELLFLAGS = -Command
 SHELL = powershell.exe
 
-.PHONY: up down reset sh logs install migrate test artisan
+.PHONY: up down reset sh logs install migrate test artisan reverb queue dev
 
 up:
 	docker compose up -d --build
@@ -41,3 +41,17 @@ artisan:
 	
 composer:
 	docker compose run --rm app composer $(CMD)
+
+# --- NUEVOS COMANDOS ---
+
+reverb:
+	docker compose exec app php artisan reverb:start --port=8081
+
+queue:
+	docker compose exec app php artisan queue:work
+
+dev:
+	docker compose exec app npm run dev
+
+build:
+	docker compose run --rm app npm run build
